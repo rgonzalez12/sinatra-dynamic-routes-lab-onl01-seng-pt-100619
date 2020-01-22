@@ -24,7 +24,7 @@ class App < Sinatra::Base
     "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
   end
   
-  get '/:operation/:number1/:number2'
+  get '/:operation/:number1/:number2' do
   number1 = params[:number1].to_i
   number2 = params[:number2].to_i
   
@@ -37,6 +37,12 @@ class App < Sinatra::Base
     answer = (number1 - number2).to_s
   when 'multiply'
     answer = (number1 * number2).to_s
+  when 'divide'
+    answer = (number1 / number2).to_s
+  else 
+    return "This is not a valid operation."
+  end
+end
   
 
 end
